@@ -16,17 +16,18 @@ Bicicleta.add = function (aBici){
 
 Bicicleta.findIndexById = function(aBiciId){
   const condicion = (e) => e.id == aBiciId;
-  return Bicicleta.allBicis.findIndex(condicion)
+  const index = Bicicleta.allBicis.findIndex(condicion)
+  return index>=0 ? index : null
 }
 
 Bicicleta.findById = function(aBiciId){
   var index = Bicicleta.findIndexById(aBiciId)
-  return Bicicleta.allBicis[index]
+  return index==null ? null : Bicicleta.allBicis[index]
 }
 
 Bicicleta.removeById = function(aBiciId){
   var index = Bicicleta.findIndexById(aBiciId)
-  if (index>=0){Bicicleta.allBicis.splice(index,1)}
+  if (index!=null){Bicicleta.allBicis.splice(index,1)}
 }
 
 var a = new Bicicleta(1, 'rojo', 'urbana', [4.6718,-74.0638])
