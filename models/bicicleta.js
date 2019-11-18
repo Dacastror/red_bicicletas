@@ -26,7 +26,7 @@ Bicicleta.findById = function(aBiciId){
 
 Bicicleta.removeById = function(aBiciId){
   var index = Bicicleta.findIndexById(aBiciId)
-  Bicicleta.allBicis.splice(index,1)
+  if (index>=0){Bicicleta.allBicis.splice(index,1)}
 }
 
 var a = new Bicicleta(1, 'rojo', 'urbana', [4.6718,-74.0638])
